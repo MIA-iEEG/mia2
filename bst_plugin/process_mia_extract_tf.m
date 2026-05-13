@@ -1,5 +1,5 @@
 function varargout = process_mia_extract_tf( varargin )
-% PROCESS_RESAMPLE: MIA TF decomposition (by bands)
+% PROCESS_MIA_EXTRACT_TF: MIA TF decomposition (by bands)
 %
 % USAGE:        sInput = process_mia_extract_tf('Run', sProcess, sInput)
 % @=============================================================================
@@ -20,7 +20,7 @@ function varargout = process_mia_extract_tf( varargin )
 % For more information type "brainstorm license" at command prompt.
 % =============================================================================@
 %
-% Authors: Francois Tadel, A.-Sophie Dubarry 2010-2025
+% Authors: A.-Sophie Dubarry
 
 eval(macro_method);
 end
