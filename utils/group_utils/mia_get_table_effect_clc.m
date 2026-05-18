@@ -79,6 +79,9 @@ for ii=1:size(ganalysis,1)
     inclusive = 0 ;
     [id, labels,idx] = mia_filter_localized_channels(m_table_as, idx_subjloc , id_contact, id_ncontact, gana.labels,inclusive) ; 
    
+    % if not electrodes localised skip subject
+    if isempty(idx); continue ; end 
+
     [un, ia, ic] = unique(labels,'stable');
   
     % Prepare table 
