@@ -1,6 +1,7 @@
 function varargout = process_mia_export_db( varargin )
-% PROCESS_EXAMPLE_CUSTOMAVG: Example file that reads all the data files in input, and saves the average.
-
+% PROCESS_MIA_EXPORT_DB: Exports data from a BST organised data structure
+% to a MIA organised data structure
+%
 % @=============================================================================
 % This software is part of the Brainstorm software:
 % http://neuroimage.usc.edu/brainstorm
@@ -19,7 +20,7 @@ function varargout = process_mia_export_db( varargin )
 % For more information type "brainstorm license" at command prompt.
 % =============================================================================@
 %
-% Authors: Anne-Sophie Dubarry 2021
+% Authors: A.-Sophie Dubarry
 
 eval(macro_method);
 end
@@ -44,10 +45,10 @@ function sProcess = GetDescription() %#ok<DEFNU>
         '', ...                               % Filename
         '', ...                               % FileFormat
         'open', ...                           % Dialog type: {open,save}
-        'MIA database...', ...               % Window title
+        'MIA database...', ...                % Window title
         'ExportData', ...                     % LastUsedDir: {ImportData,ImportChannel,ImportAnat,ExportChannel,ExportData,ExportAnat,ExportProtocol,ExportImage,ExportScript}
         'single', ...                         % Selection mode: {single,multiple}
-        'dirs', ...                          % Selection mode: {files,dirs,files_and_dirs}
+        'dirs', ...                           % Selection mode: {files,dirs,files_and_dirs}
        };                     
    % Option: MIA database folder
     sProcess.options.mia_db.Comment = 'MIA database folder:';
