@@ -130,7 +130,12 @@ function OutputFiles = Run(sProcess, sInputs) %#ok<DEFNU>
         % If the user wants to select specifically a foler in the database
         % (e.g. "Implantation")
         if isempty(LocFolder)
-            chanfilename = sStudy(1).Channel.FileName; 
+            % If there is no INTRA folder take the next available
+            if isempty(sStudy(1).Channel)
+                chanfilename = sStudy(2).Channel.FileName; 
+            else
+                chanfilename = sStudy(1).Channel.FileName; 
+            end
         else
             % Keyword was used, check if ONE and only ONE occurence of the
             % folder exist, otherwise skip the subject
