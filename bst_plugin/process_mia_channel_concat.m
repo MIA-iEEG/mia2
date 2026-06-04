@@ -104,7 +104,6 @@ function OutputFiles = Run(sProcess, sInputs) %#ok<DEFNU>
     if ismember(NewSubjectName,SubNames)
                bst_report('Error', sProcess, sInputs, 'The subject you are creating already exist.');
         return
-
     end
 
     % Initialize channel structure
@@ -116,20 +115,6 @@ function OutputFiles = Run(sProcess, sInputs) %#ok<DEFNU>
     % Data and anatomy directories:
     datadir = prot.STUDIES;
     anatdir = prot.SUBJECTS;
-    
-    % coregsubidx = find(cellfun(@(x) strcmp(x, 'COREG'), SubName));
-    % if isempty(coregsubidx)
-    %     error('Add a new subject to the protol names ''COREG'', with a copy of the ICBM152 MRI and cortex');
-    % end
-    % 
-    % % Find the MRI file for COREG (expects this to already exist):
-    % mrifileidx = find(cellfun(@(x) contains(x, {'MRI', 'T1'}), {subs.Subject(coregsubidx).Anatomy.FileName}));
-    % if (length(mrifileidx) ~= 1)
-    %     error('Please add a subject named ''%s'' with ICBM152 MRI and cortex.', COREG_SUBJECT_NAME);
-    % end
-    
-    % Load COREG MRI once
-    %coregmridata = load(fullfile(anatdir, subs.Subject(coregsubidx).Anatomy(mrifileidx).FileName));
     
     SubIdxs = find(~ismember(SubNames,SubSkip)) ; 
 
@@ -219,7 +204,7 @@ end
 chanstruct.Comment = sprintf('Grand Subject (%d)',size(chanstruct.Channel,2));
 
 % Create a new subject in Brainstorm 
-[sSubject, iSubject] = db_add_subject(NewSubjectName, [], 0, 0) ; 
+[sSubject, iSubject] = db_add_subject(NewSubjectName, [], 1, 0) ; 
 
 % Process: Simulate generic signals
 sFilesSimul = bst_process('CallProcess', 'process_simulate_matrix', [], [], ...
@@ -251,20 +236,16 @@ sFilesNew = bst_process('CallProcess', 'process_import_data_time', relativePath,
     'baseline',      [], ...
     'blsensortypes', 'MEG, EEG');
 
-% Delete the file from Brainstorm's database AND disk
+% Delete simulation matrix 
 sFiles = bst_process('CallProcess', 'process_delete', sFilesSimul.FileName, [], ...
     'target', 2);  % Delete folders
+
+% Delete Link to raw 
 sFiles = bst_process('CallProcess', 'process_delete', relativePath, [], ...
     'target', 2);  % Delete folders
 
-%% Color Code by Patient
-% % Replace all data in dat.F with a patient-based color code
-% dat.F = repmat(idx, 1, size(dat.F, 2));
-% 
-% % Add a comment in dat
-% dat.dat = sprintf('Patients. Number of patients = %d (Custom colormap)', length(unique_vals));
-% Load data structure 
-sRaw = in_bst_data(sFilesNew.FileName);
+% Get data to color code per patients/subjects
+sRaw = in_bst_data(sFilesNew.FileName,'F');
 
 % Get unique patient IDs and map them to sequential integers
 [unique_vals, ~, idx] = unique({chanstruct.Channel.Comment});
@@ -278,6 +259,13 @@ sRaw.Comment = sprintf('Patients. Number of patients = %d (Custom colormap)', le
 % Save channel structure (with photocell)
 bst_save(file_fullpath(sFilesNew.FileName), sRaw, 'v6', 1);
 
-panel_protocols('UpdateTree');
+% Reload to update display on the GUI (new file name)
+[sStudy, iStudy, iData] = bst_get('DataFile', sFilesNew.FileName);
+
+% Refresh GUI
+db_reload_studies(iStudy);
+
+% Save outputfile
+OutputFiles = {sFilesNew.FileName}; 
 
 end
