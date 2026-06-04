@@ -122,7 +122,7 @@ function OutputFiles = Run(sProcess, sInputs) %#ok<DEFNU>
     for iSubj = 1:length(SubIdxs)
         
         % Load current subject's Implantation channel 
-        sStudy = bst_get('StudyWithSubject', subs.Subject(SubIdxs(iSubj)).FileName) ; 
+        sStudy = bst_get('StudyWithSubject', subs.Subject(SubIdxs(iSubj)).FileName , 'intra_subject') ; 
        
         % If no channel file for this subject: skip it
         if isempty(sStudy) ; fprintf(strcat('Skipping : ', subs.Subject(SubIdxs(iSubj)).FileName,'\n')) ; continue ; end 
