@@ -1,0 +1,83 @@
+hero:
+  headline: "Multi-patient intracranial EEG analysis in Matlab"
+  strapline: >
+    MIA brings together Brainstorm integration, reproducible Matlab workflows,
+    tutorials, and companion data for research-grade SEEG group analysis.
+  cta_primary:
+    label: "Install MIA"
+    url: "/installation/"
+  cta_secondary:
+    label: "View on GitHub"
+    url: "https://github.com/Dewmith/mia"
+  cta_tertiary:
+    label: "Shared dataset"
+    url: "/dataset/"
+
+overview:
+  heading: "A focused toolbox for group iEEG analysis"
+  intro: >
+    MIA is a Matlab toolbox for analysing intracranial EEG signals over
+    multiple patients. It is designed for research workflows that combine
+    patient-level recordings, regions of interest, statistics, and reproducible
+    visualisation.
+  body: >
+    The original MIA toolbox was developed by A.-Sophie Dubarry in collaboration
+    with Catherine Liegeois-Chauvel, Agnes Trebuchon, Christian Benar, and
+    F.-Xavier Alario. MIA keeps the software website close to the repository:
+    installation notes, dataset links, resources, and citations live beside the
+    code and are deployed automatically with GitHub Pages.
+  disclaimer: >
+    MIA is released for research purposes only. The toolbox and data obtained
+    from it should not be used for clinical purposes.
+
+features:
+  heading: "What the site covers"
+  intro: >
+    This first website version keeps the focus on software users and leaves the
+    older personal and lab-equipment pages out of the main navigation.
+  items:
+    - title: "Install"
+      image: "/assets/images/logo/mia_icon.svg"
+      body: >
+        Set up MIA as a Brainstorm plugin or as a standalone Matlab toolbox.
+      url: "/installation/"
+      label: "Read installation guide"
+    - title: "Learn"
+      image: "/assets/images/installation/matlab-add-path.png"
+      body: >
+        Follow tutorial and course material from the original MIA website while
+        the repository-centered documentation grows.
+      url: "/resources/"
+      label: "Open resources"
+    - title: "Reuse data"
+      image: "/assets/images/dataset/zenodo-badge.png"
+      body: >
+        Use the public companion dataset that supports the examples shown in
+        MIA tutorials.
+      url: "/dataset/"
+      label: "View dataset"
+
+workflow:
+  heading: "Repository-first documentation"
+  intro: >
+    The website is built from source in the MIA repository, so documentation
+    updates can be reviewed with code changes and published by GitHub Actions.
+  steps:
+    - title: "Edit content"
+      body: "Most reusable text, links, and navigation live in YAML files under _data."
+    - title: "Build with Jekyll"
+      body: "Layouts and includes render the same visual language used by the reference website."
+    - title: "Deploy with Pages"
+      body: "The workflow builds from the nested website directory and publishes the Pages artifact."
+
+join_cta:
+  heading: "Use MIA in your research workflow"
+  body: >
+    Start with installation, then work through tutorials and the public companion
+    dataset to reproduce the example analyses.
+  cta_primary:
+    label: "Install MIA"
+    url: "/installation/"
+  cta_secondary:
+    label: "Open GitHub"
+    url: "https://github.com/Dewmith/mia"

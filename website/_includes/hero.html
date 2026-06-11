@@ -1,0 +1,41 @@
+{% assign s = site.data.site %}
+{% assign hero_c = site.data.content.hero %}
+
+<section class="hero" aria-label="MIA overview">
+  <div class="hero__media" aria-hidden="true">
+    <div class="hero__grid"></div>
+    <div class="hero__wave">
+      <svg viewBox="0 0 1200 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,52 C55,52 70,16 110,16 C150,16 162,84 202,84 C244,84 255,28 296,28 C338,28 350,72 392,72 C433,72 448,40 490,40 C533,40 548,61 590,61 C632,61 650,22 690,22 C730,22 744,80 785,80 C826,80 842,44 883,44 C924,44 938,62 980,62 C1022,62 1038,30 1080,30 C1123,30 1142,51 1200,51 L1200,100 L0,100 Z" fill="rgba(255,204,0,0.18)"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="hero__content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-8 text-center">
+          <div class="hero__badge">
+            <img src="{{ s.logo | relative_url }}"
+                 alt="{{ s.logo_alt }}"
+                 class="hero__logo"
+                 width="260" height="110">
+          </div>
+          <h1 class="hero__headline">{{ hero_c.headline }}</h1>
+          <p class="hero__strapline">{{ hero_c.strapline }}</p>
+          <div class="hero__actions">
+            <a href="{{ hero_c.cta_primary.url | relative_url }}" class="btn btn-gold btn-lg">{{ hero_c.cta_primary.label }}</a>
+            <a href="{{ hero_c.cta_secondary.url }}" class="btn btn-outline-light btn-lg" target="_blank" rel="noopener">{{ hero_c.cta_secondary.label }}</a>
+            <a href="{{ hero_c.cta_tertiary.url | relative_url }}" class="btn btn-ghost-light btn-lg">{{ hero_c.cta_tertiary.label }}</a>
+          </div>
+          <a href="#overview" class="hero__scroll-cue" aria-label="Scroll to overview">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

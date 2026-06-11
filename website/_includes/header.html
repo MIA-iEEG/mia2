@@ -1,0 +1,38 @@
+<header class="site-header" role="banner">
+  <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="{{ '/' | relative_url }}" aria-label="{{ site.data.site.title }} home">
+        <img src="{{ site.data.site.logo | relative_url }}"
+             alt="{{ site.data.site.logo_alt }}"
+             class="navbar-brand__logo"
+             width="120" height="50">
+        <span class="navbar-brand__text">
+          <span class="navbar-brand__name">MIA</span>
+          <span class="navbar-brand__tagline">iEEG analysis toolbox</span>
+        </span>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#main-nav"
+              aria-controls="main-nav" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="main-nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          {% for item in site.data.navigation.main %}
+          <li class="nav-item">
+            <a class="nav-link{% if page.url == item.url %} active{% endif %}"
+               {% if page.url == item.url %}aria-current="page"{% endif %}
+               href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          </li>
+          {% endfor %}
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-primary btn-sm nav-cta" href="{{ site.data.site.github_url }}" target="_blank" rel="noopener">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
