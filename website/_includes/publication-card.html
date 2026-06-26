@@ -1,0 +1,10 @@
+{% assign item = include.item %}
+<article class="publication-card{% if include.featured %} publication-card--featured{% endif %}">
+  {% if item.year %}<span class="publication-card__year">{{ item.year }}</span>{% endif %}
+  <h2>{{ item.title }}</h2>
+  {% if item.venue or item.citation %}
+  <p>{% if item.venue %}<strong>{{ item.venue }}</strong>{% endif %}{% if item.citation %}{% if item.venue %}. {% endif %}{{ item.citation }}{% endif %}</p>
+  {% endif %}
+  {% if item.authors %}<p>{{ item.authors }}</p>{% endif %}
+  {% if item.doi %}<a href="{{ item.doi }}" target="_blank" rel="noopener">Open DOI</a>{% endif %}
+</article>

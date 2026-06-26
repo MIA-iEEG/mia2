@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<header class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      {% if page.category %}<span class="page-hero__category">{{ page.category }}</span>{% endif %}
+      <h1 class="page-hero__title">{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="page-hero__subtitle">{{ page.subtitle }}</p>{% endif %}
+    </div>
+  </div>
+</header>
+
+<div class="page-content">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-xl-9">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</div>

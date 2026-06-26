@@ -1,0 +1,21 @@
+main:
+  - title: "Home"
+    url: "/"
+  - title: "Installation"
+    url: "/installation/"
+  - title: "Dataset"
+    url: "/dataset/"
+  - title: "Resources"
+    url: "/resources/"
+  - title: "Publications"
+    url: "/publications/"
+
+footer:
+  - title: "Installation"
+    url: "/installation/"
+  - title: "Shared dataset"
+    url: "/dataset/"
+  - title: "Resources"
+    url: "/resources/"
+  - title: "Publications"
+    url: "/publications/"

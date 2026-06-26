@@ -1,0 +1,40 @@
+title: "MIA"
+subtitle: "Multi-patient Intracranial EEG Analysis"
+description: >
+  MIA is a Matlab toolbox for multi-patient intracranial EEG analysis,
+  with Brainstorm integration, shared tutorial material, and companion data.
+
+url: "https://dewmith.github.io"
+baseurl: "/mia"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  parse_block_html: true
+permalink: pretty
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+      image: /assets/images/logo/mia_newlogo3.png
+  - scope:
+      path: "index.md"
+    values:
+      layout: home
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .jekyll-cache
+  - node_modules
+  - README.md

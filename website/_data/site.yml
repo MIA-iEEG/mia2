@@ -1,0 +1,24 @@
+title: "MIA"
+tagline: "Multi-patient Intracranial EEG Analysis"
+description: >
+  MIA is a Matlab toolbox for analysing intracranial EEG signals over
+  multiple patients. It supports research workflows around group analysis,
+  Brainstorm integration, tutorials, and companion data.
+
+version: "stale_v1.0"
+url: "https://dewmith.github.io/mia"
+
+github_url: "https://github.com/Dewmith/mia"
+upstream_url: "https://github.com/MIA-iEEG/mia"
+issues_url: "https://github.com/Dewmith/mia/issues"
+zenodo_url: "https://zenodo.org/record/4767855"
+tutorials_url: "https://www.neurotrack.fr/mia/tutorials/"
+courses_url: "https://www.neurotrack.fr/mia/training-sessions/"
+
+logo: "/assets/images/logo/mia_newlogo3.png"
+logo_alt: "MIA toolbox logo"
+icon: "/assets/images/logo/mia_icon.svg"
+
+footer_text: >
+  MIA is released for research purposes. It should not be used for clinical
+  decision-making.

@@ -1,0 +1,31 @@
+featured:
+  - year: 2022
+    title: "An open-source toolbox for Multi-patient Intracranial EEG Analysis (MIA)"
+    venue: "NeuroImage"
+    citation: "Dubarry A-S, Liegeois-Chauvel C, Trebuchon A, Benar C, Alario F-X. NeuroImage 257:119251."
+    doi: "https://doi.org/10.1016/j.neuroimage.2022.119251"
+  - year: 2017
+    title: "Estimating Parallel Processing in a Language Task Using Single-Trial Intracerebral Electroencephalography"
+    venue: "Psychological Science"
+    citation: "Dubarry A-S, Llorens A, Trebuchon-Da Fonseca A, Carron R, Liegeois-Chauvel C, Benar C, Alario F-X. Psychological Science 28(4):414-426."
+    doi: "https://doi.org/10.1177/0956797616681296"
+  - year: 2019
+    title: "Cortical Dynamics of Semantic Priming and Interference during Word Production: An Intracerebral Study"
+    venue: "Journal of Cognitive Neuroscience"
+    citation: "Anders R, Llorens A, Dubarry A, Trebuchon A, Liegeois-Chauvel C, Alario F-X. Journal of Cognitive Neuroscience 31(7):978-1001."
+    doi: "https://doi.org/10.1162/jocn_a_01406"
+  - year: 2022
+    title: "Inter-individual variability in dorsal stream dynamics during word production"
+    venue: "European Journal of Neuroscience"
+    citation: "Liegeois-Chauvel C, Dubarry A, Wang I, Chauvel P, Gonzalez-Martinez JA, Alario F-X. European Journal of Neuroscience 56(7):5070-5089."
+    doi: "https://doi.org/10.1111/ejn.15807"
+
+presentations:
+  - year: 2018
+    title: "Multipatient Intracerebral data Analysis: MIA, a pipeline and tool for group analysis of intracerebral EEG in cognition"
+    venue: "4th Symposium on cutting-edge methods for EEG research, Paris"
+    authors: "A.-S. Dubarry, C. Liegeois-Chauvel, A. Trebuchon, C. Benar, F.-X. Alario"
+  - year: 2016
+    title: "Parallel Processing in a Language Task: Estimates from Intracerebral Single Trial Data"
+    venue: "8th Annual Meeting of the Society for the Neurobiology of Language, London"
+    authors: "A.-S. Dubarry, A. Llorens, A. Trebuchon, R. Carron, C. Liegeois-Chauvel, C. Benar, F.-X. Alario"
