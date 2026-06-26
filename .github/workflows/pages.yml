@@ -2,7 +2,7 @@ name: Deploy MIA Jekyll site to GitHub Pages
 
 on:
   push:
-    branches: ["feature/website_action"]
+    branches: ["master"]
   workflow_dispatch:
 
 permissions:
