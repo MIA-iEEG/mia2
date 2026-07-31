@@ -637,6 +637,29 @@ code {
   mix-blend-mode: multiply;
 }
 
+/* Funder credit under a course entry. This logo is a PNG with real
+   transparency, so it needs no blend mode. */
+.course-support {
+  margin: 1.6rem 0 0;
+}
+
+.course-support__label {
+  margin-bottom: 0.5rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.course-support img {
+  display: block;
+  width: auto;
+  max-width: min(260px, 100%);
+  height: auto;
+}
+
 .callout {
   margin: 1.4rem 0;
   padding: 1rem 1.2rem;

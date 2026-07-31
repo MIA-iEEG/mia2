@@ -47,3 +47,10 @@ Hands-on tutorial presented at the WIRED conference.
 
 - [Lecture]({{ site.data.site.courses.lpl2017_lecture }})
 - [Walkthrough]({{ site.data.site.courses.lpl2017_walkthrough }})
+
+<div class="course-support" markdown="0">
+  <p class="course-support__label">Supported by</p>
+  <img src="{{ '/assets/images/courses/ilcb-logo.webp' | relative_url }}"
+       alt="Institute of Language, Communication and the Brain (ILCB)"
+       width="754" height="161">
+</div>
