@@ -267,10 +267,22 @@ bst_save(file_fullpath(sFilesNew.FileName), sRaw, 'v6', 1);
 % Reload to update display on the GUI (new file name)
 [sStudy, iStudy, iData] = bst_get('DataFile', sFilesNew.FileName);
 
+% Rename the folder that import_raw named after the simulated signal
+% (matrix_sim_<date>_<time>). That folder holds the group channel file, and a
+% timestamped name changes at every run, which makes it impossible to point at
+% afterwards. The subject name is already unique, so a fixed name is enough.
+GroupCondition = 'GroupChannel';
+if ~isempty(sStudy.Condition) && ~strcmpi(sStudy.Condition{1}, GroupCondition)
+    db_rename_condition(bst_fullfile(NewSubjectName, sStudy.Condition{1}), ...
+                        bst_fullfile(NewSubjectName, GroupCondition));
+    % File paths changed with the folder: read them back from the database
+    sStudy = bst_get('Study', iStudy);
+end
+
 % Refresh GUI
 db_reload_studies(iStudy);
 
 % Save outputfile
-OutputFiles = {sFilesNew.FileName}; 
+OutputFiles = {sStudy.Data(iData).FileName};
 
 end
