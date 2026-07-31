@@ -4,13 +4,26 @@ subtitle: "Run the updated MIA workflow from Brainstorm channel concatenation th
 category: "Learning"
 description: "Step-by-step tutorial for the updated MIA2 Brainstorm processes."
 permalink: /tutorial/
+body_class: tutorial-page
+wide_content: true
 ---
 
 This tutorial describes the updated MIA2 workflow for preparing a shared channel
 space, calculating Morlet time-frequency representations, converting Brainstorm
 data to MIA ROI data, visualizing averages, and contrasting two conditions.
 
-## 1. Concatenate channels
+<nav class="tutorial-toc" aria-label="Tutorial steps" markdown="0">
+  <p class="tutorial-toc__title">In this tutorial</p>
+  <ol>
+    <li><a href="#concatenate-channels"><span>01</span>Concatenate channels</a></li>
+    <li><a href="#morlet-time-frequency"><span>02</span>Calculate time-frequency</a></li>
+    <li><a href="#convert-to-mia"><span>03</span>Convert to MIA</a></li>
+    <li><a href="#visualize-averages"><span>04</span>Visualize averages</a></li>
+    <li><a href="#run-statistics"><span>05</span>Run statistics</a></li>
+  </ol>
+</nav>
+
+## 1. Concatenate channels {#concatenate-channels}
 
 **Process:** `MIA/bst_plugin/process_concatenate_channels.m`
 
@@ -18,17 +31,22 @@ This process creates a new grand subject containing the channels from the
 selected subjects in the current Brainstorm protocol. The shared channel space
 makes later ROI-based MIA analyses easier to run.
 
-In Brainstorm, open:
-
-`Run → Add process icon → Standardize → MIA: Concatenate Channels`
+<div class="tutorial-menu-path" markdown="0">
+  <span>Brainstorm menu</span>
+  <code>Run → Add process icon → Standardize → MIA: Concatenate Channels</code>
+</div>
 
 <div class="tutorial-figure-grid tutorial-figure-grid--menu" markdown="0">
   <figure class="tutorial-figure">
-    <img src="{{ '/assets/images/tutorial/concatenate-channels-menu.png' | relative_url }}" alt="Brainstorm process menu with MIA Concatenate Channels selected" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/concatenate-channels-menu.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the Concatenate Channels menu screenshot at full size">
+      <img src="{{ '/assets/images/tutorial/concatenate-channels-menu.png' | relative_url }}" alt="Brainstorm process menu with MIA Concatenate Channels selected" loading="lazy">
+    </a>
     <figcaption>Select MIA: Concatenate Channels from the Standardize process group.</figcaption>
   </figure>
   <figure class="tutorial-figure tutorial-figure--compact">
-    <img src="{{ '/assets/images/tutorial/concatenate-channels-options.png' | relative_url }}" alt="MIA Concatenate Channels process options" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/concatenate-channels-options.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the Concatenate Channels options screenshot at full size">
+      <img src="{{ '/assets/images/tutorial/concatenate-channels-options.png' | relative_url }}" alt="MIA Concatenate Channels process options" loading="lazy">
+    </a>
     <figcaption>Configure the grand-subject name and subjects to skip.</figcaption>
   </figure>
 </div>
@@ -47,7 +65,7 @@ Subject01, Subject02
 
 Click **Run** to create the grand subject.
 
-## 2. Calculate time-frequency representations with Morlet wavelets
+## 2. Calculate time-frequency representations with Morlet wavelets {#morlet-time-frequency}
 
 **Process:** `MIA/bst_plugin/process_mia_extract_tf.m`
 
@@ -55,17 +73,22 @@ This process calculates a Morlet-wavelet time-frequency representation of the
 Brainstorm data dropped into **Process1**. It uses the current Brainstorm
 protocol and applies 1/f normalization.
 
-In Brainstorm, open:
-
-`Frequency → MIA: Time-frequency (Morlet by band + 1/f norm)`
+<div class="tutorial-menu-path" markdown="0">
+  <span>Brainstorm menu</span>
+  <code>Frequency → MIA: Time-frequency (Morlet by band + 1/f norm)</code>
+</div>
 
 <div class="tutorial-figure-grid tutorial-figure-grid--menu" markdown="0">
   <figure class="tutorial-figure">
-    <img src="{{ '/assets/images/tutorial/morlet-time-frequency-menu.png' | relative_url }}" alt="Brainstorm Frequency menu with the MIA Morlet time-frequency process selected" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/morlet-time-frequency-menu.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the Morlet time-frequency menu screenshot at full size">
+      <img src="{{ '/assets/images/tutorial/morlet-time-frequency-menu.png' | relative_url }}" alt="Brainstorm Frequency menu with the MIA Morlet time-frequency process selected" loading="lazy">
+    </a>
     <figcaption>Select the MIA Morlet time-frequency process.</figcaption>
   </figure>
   <figure class="tutorial-figure tutorial-figure--compact">
-    <img src="{{ '/assets/images/tutorial/morlet-time-frequency-options.png' | relative_url }}" alt="MIA Morlet time-frequency process options" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/morlet-time-frequency-options.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the Morlet time-frequency options screenshot at full size">
+      <img src="{{ '/assets/images/tutorial/morlet-time-frequency-options.png' | relative_url }}" alt="MIA Morlet time-frequency process options" loading="lazy">
+    </a>
     <figcaption>Set the baseline, frequency bands, and number of cycles.</figcaption>
   </figure>
 </div>
@@ -83,7 +106,7 @@ The process contains these inputs:
 
 Click **Run** to calculate the time-frequency representation.
 
-## 3. Convert Brainstorm data to MIA
+## 3. Convert Brainstorm data to MIA {#convert-to-mia}
 
 **Process:** `MIA/bst_plugin/process_mia_bst2mia.m`
 
@@ -91,17 +114,22 @@ This process converts Brainstorm data into MIA ROI data. It uses the current
 Brainstorm protocol, the condition dropped into **Process1**, the selected
 subject's channel file, and a labeling table.
 
-In Brainstorm, open:
-
-`Run → Add process icon → Test → MIA: Convert from BST to MIA`
+<div class="tutorial-menu-path" markdown="0">
+  <span>Brainstorm menu</span>
+  <code>Run → Add process icon → Test → MIA: Convert from BST to MIA</code>
+</div>
 
 <div class="tutorial-figure-grid tutorial-figure-grid--menu" markdown="0">
   <figure class="tutorial-figure">
-    <img src="{{ '/assets/images/tutorial/bst-to-mia-menu.png' | relative_url }}" alt="Brainstorm process menu with Convert from BST to MIA selected" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/bst-to-mia-menu.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the Convert from BST to MIA menu screenshot at full size">
+      <img src="{{ '/assets/images/tutorial/bst-to-mia-menu.png' | relative_url }}" alt="Brainstorm process menu with Convert from BST to MIA selected" loading="lazy">
+    </a>
     <figcaption>Select MIA: Convert from BST to MIA.</figcaption>
   </figure>
   <figure class="tutorial-figure tutorial-figure--compact">
-    <img src="{{ '/assets/images/tutorial/bst-to-mia-options.png' | relative_url }}" alt="Convert from BST to MIA process options" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/bst-to-mia-options.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the Convert from BST to MIA options screenshot at full size">
+      <img src="{{ '/assets/images/tutorial/bst-to-mia-options.png' | relative_url }}" alt="Convert from BST to MIA process options" loading="lazy">
+    </a>
     <figcaption>Choose the labeling table, channel subject, and subjects to skip.</figcaption>
   </figure>
 </div>
@@ -131,28 +159,35 @@ Click **Run**. For each converted condition, the process creates:
 `<ConditionName>` is the condition dropped into Process1. With the default
 grand-subject name, `<group_subject>` is `COREG`.
 
-## 4. Visualize averages
+## 4. Visualize averages {#visualize-averages}
 
 **Process:** `MIA/bst_plugin/process_mia_group_gui.m`
 
 This process opens `mia_group_gui` from ROI files already saved in the current
 Brainstorm protocol.
 
-In Brainstorm, open:
-
-`Run → Add process icon → Test → MIA: Visualize Averages`
+<div class="tutorial-menu-path" markdown="0">
+  <span>Brainstorm menu</span>
+  <code>Run → Add process icon → Test → MIA: Visualize Averages</code>
+</div>
 
 <div class="tutorial-figure-grid tutorial-figure-grid--three" markdown="0">
   <figure class="tutorial-figure">
-    <img src="{{ '/assets/images/tutorial/visualize-averages-menu.png' | relative_url }}" alt="Brainstorm process menu with MIA Visualize Averages selected" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/visualize-averages-menu.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the Visualize Averages menu screenshot at full size">
+      <img src="{{ '/assets/images/tutorial/visualize-averages-menu.png' | relative_url }}" alt="Brainstorm process menu with MIA Visualize Averages selected" loading="lazy">
+    </a>
     <figcaption>Select MIA: Visualize Averages.</figcaption>
   </figure>
   <figure class="tutorial-figure tutorial-figure--compact">
-    <img src="{{ '/assets/images/tutorial/visualize-averages-subject.png' | relative_url }}" alt="ROI subject selection in the Visualize Averages process" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/visualize-averages-subject.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the ROI subject selection screenshot at full size">
+      <img src="{{ '/assets/images/tutorial/visualize-averages-subject.png' | relative_url }}" alt="ROI subject selection in the Visualize Averages process" loading="lazy">
+    </a>
     <figcaption>Choose the subject containing the ROI files.</figcaption>
   </figure>
   <figure class="tutorial-figure tutorial-figure--compact">
-    <img src="{{ '/assets/images/tutorial/visualize-averages-conditions.png' | relative_url }}" alt="Condition selection dialog for MIA ROI visualization" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/visualize-averages-conditions.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the condition selection screenshot at full size">
+      <img src="{{ '/assets/images/tutorial/visualize-averages-conditions.png' | relative_url }}" alt="Condition selection dialog for MIA ROI visualization" loading="lazy">
+    </a>
     <figcaption>Select one or more available ROI conditions.</figcaption>
   </figure>
 </div>
@@ -193,11 +228,15 @@ Select one or more ROI rows and then:
 
 <div class="tutorial-result-with-legend" markdown="0">
   <figure class="tutorial-figure">
-    <img src="{{ '/assets/images/tutorial/individual-condition-results.png' | relative_url }}" alt="MIA individual-condition ROI results table and plots" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/individual-condition-results.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the individual-condition results screenshot at full size">
+      <img src="{{ '/assets/images/tutorial/individual-condition-results.png' | relative_url }}" alt="MIA individual-condition ROI results table and plots" loading="lazy">
+    </a>
     <figcaption>Individual-condition ROI results.</figcaption>
   </figure>
   <figure class="tutorial-figure tutorial-figure--legend">
-    <img src="{{ '/assets/images/tutorial/results-table-legend.png' | relative_url }}" alt="Legend explaining the MIA results table columns" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/results-table-legend.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the results-table legend at full size">
+      <img src="{{ '/assets/images/tutorial/results-table-legend.png' | relative_url }}" alt="Legend explaining the MIA results table columns" loading="lazy">
+    </a>
     <figcaption>Results-table column legend.</figcaption>
   </figure>
 </div>
@@ -215,11 +254,15 @@ ROI and click **Group ROI Timeseries** to plot the conditions together.
 
 <div class="tutorial-result-with-legend" markdown="0">
   <figure class="tutorial-figure">
-    <img src="{{ '/assets/images/tutorial/group-comparison-results.png' | relative_url }}" alt="MIA group-comparison ROI results table and plots" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/group-comparison-results.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the group-comparison results screenshot at full size">
+      <img src="{{ '/assets/images/tutorial/group-comparison-results.png' | relative_url }}" alt="MIA group-comparison ROI results table and plots" loading="lazy">
+    </a>
     <figcaption>Group comparison for the selected conditions.</figcaption>
   </figure>
   <figure class="tutorial-figure tutorial-figure--legend">
-    <img src="{{ '/assets/images/tutorial/results-table-legend.png' | relative_url }}" alt="Legend explaining the MIA results table columns" loading="lazy">
+    <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/results-table-legend.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the results-table legend at full size">
+      <img src="{{ '/assets/images/tutorial/results-table-legend.png' | relative_url }}" alt="Legend explaining the MIA results table columns" loading="lazy">
+    </a>
     <figcaption>Results-table column legend.</figcaption>
   </figure>
 </div>
@@ -268,7 +311,7 @@ The process uses three helper functions:
 - `get_subject_roi_files(roiDir)` finds, sorts, and names available `*_rois.mat` files.
 - `select_roi_conditions(conditionNames, subjectName)` opens the condition-selection dialog.
 
-## 5. Run statistics
+## 5. Run statistics {#run-statistics}
 
 This process calculates a statistical contrast between two conditions.
 

@@ -22,7 +22,7 @@
   <link rel="icon" href="{{ site.data.site.icon | relative_url }}" type="image/png">
   {% seo %}
 </head>
-<body>
+<body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   {% include header.html %}
   <main id="main-content">

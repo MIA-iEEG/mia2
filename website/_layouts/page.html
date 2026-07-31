@@ -15,7 +15,7 @@ layout: default
 <div class="page-content">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-10 col-xl-9">
+      <div class="col-12 {% if page.wide_content %}col-xl-11{% else %}col-lg-10 col-xl-9{% endif %}">
         {{ content }}
       </div>
     </div>
