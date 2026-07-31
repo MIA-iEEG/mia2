@@ -42,7 +42,7 @@ features:
     older personal and lab-equipment pages out of the main navigation.
   items:
     - title: "Install"
-      image: "/assets/images/logo/mia_icon.svg"
+      image: "/assets/images/logo/mia_newlogo3.png"
       body: >
         Set up MIA as a Brainstorm plugin or as a standalone Matlab toolbox.
       url: "/installation/"

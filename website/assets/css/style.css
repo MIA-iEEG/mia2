@@ -524,6 +524,7 @@ code {
   max-width: 86%;
   max-height: 112px;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .feature-card h3 {

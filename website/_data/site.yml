@@ -16,7 +16,7 @@ courses_url: "https://www.neurotrack.fr/mia/training-sessions/"
 
 logo: "/assets/images/logo/mia_newlogo3.png"
 logo_alt: "MIA toolbox logo"
-icon: "/assets/images/logo/mia_icon.svg"
+icon: "/assets/images/logo/mia_newlogo3.png"
 
 footer_text: >
   MIA is released for research purposes. It should not be used for clinical
