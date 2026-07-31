@@ -5,8 +5,8 @@ Contributors:
 - Shuai WANG, shuai.WANG.AT.univ-amu.fr
 - Anne-Sophie DUBARRY, anne-sophie.dubarry.AT.cnrs.fr
 
-Contact : https://www.neurotrack.fr/contact/
-Web : https://github.com/MIA-iEEG/mia
+Contact : https://github.com/MIA-iEEG/mia2/issues
+Web : https://github.com/MIA-iEEG/mia2
 
 The MIA (Multi-patient Intracranial EEG Analysis) software is a Matlab
 toolbox for the group-level analysis of intracerebral EEG (SEEG/iEEG)
@@ -26,12 +26,19 @@ contributions to be properly identified and acknowledged.
 
 The references to be acknowledged are :
 
-Dubarry et al. An open-source toolbox for Multi-patient Intracranial EEG
-Analysis (MIA). NeuroImage (2022) vol. 257 pp. 119251
+1. The version of MIA you actually ran. Citing the software itself, and not
+   only the paper that introduced it, credits every contributor to that
+   release (Westner et al., arXiv:2403.19394, 2024). Run mia_get_version to
+   obtain it, then cite as :
 
-Wang et al. Revealing the co-existence of written and spoken language
-coding neural populations in the visual word form area. Imaging
-Neuroscience (2025)
+   Dubarry A-S et al. MIA: Multi-patient Intracranial EEG Analysis,
+   version X.Y.Z. https://github.com/MIA-iEEG/mia2
+
+2. The paper introducing the toolbox :
+
+   Dubarry A-S, Liégeois-Chauvel C, Trébuchon A, Bénar C, Alario F-X.
+   An open-source toolbox for Multi-patient Intracranial EEG Analysis
+   (MIA). NeuroImage (2022) vol. 257 pp. 119251
 
 DISCLAIMER: MIA was implemented and released for research purposes only.
 MIA, or data obtained from MIA, should not be used for clinical purposes.

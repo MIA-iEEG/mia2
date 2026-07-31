@@ -242,9 +242,7 @@ Select one or more ROI rows and then:
 </div>
 
 <figure class="tutorial-figure tutorial-figure--wide" markdown="0">
-  <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/individual-roi-figure.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the detailed individual ROI figure at full size">
-    <img src="{{ '/assets/images/tutorial/individual-roi-figure.png' | relative_url }}" alt="Detailed MIA individual ROI time-series and heatmap figure" loading="lazy">
-  </a>
+  <img src="{{ '/assets/images/tutorial/individual-roi-figure.png' | relative_url }}" alt="Detailed MIA individual ROI time-series and heatmap figure" loading="lazy">
   <figcaption>Detailed ROI activity showing z-scored time series and a heatmap.</figcaption>
 </figure>
 
@@ -274,9 +272,7 @@ summarizes activity across contacts or subjects, and its color bar indicates
 z-score values.
 
 <figure class="tutorial-figure tutorial-figure--wide" markdown="0">
-  <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/group-roi-timeseries.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the group ROI time-series figure at full size">
-    <img src="{{ '/assets/images/tutorial/group-roi-timeseries.png' | relative_url }}" alt="MIA group ROI time-series comparison figure" loading="lazy">
-  </a>
+  <img src="{{ '/assets/images/tutorial/group-roi-timeseries.png' | relative_url }}" alt="MIA group ROI time-series comparison figure" loading="lazy">
   <figcaption>Time-series comparison for a selected ROI across conditions.</figcaption>
 </figure>
 
@@ -325,9 +321,7 @@ This process calculates a statistical contrast between two conditions.
    statistical results for visualization and further analysis.
 
 <figure class="tutorial-figure tutorial-figure--menu-only" markdown="0">
-  <a class="tutorial-image-link" href="{{ '/assets/images/tutorial/contrast-conditions-menu.png' | relative_url }}" target="_blank" rel="noopener" aria-label="Open the condition-contrast menu screenshot at full size">
-    <img src="{{ '/assets/images/tutorial/contrast-conditions-menu.png' | relative_url }}" alt="Brainstorm process menu for contrasting two MIA conditions" loading="lazy">
-  </a>
+  <img src="{{ '/assets/images/tutorial/contrast-conditions-menu.png' | relative_url }}" alt="Brainstorm process menu for contrasting two MIA conditions" loading="lazy">
   <figcaption>Select the MIA condition-contrast process after adding two conditions.</figcaption>
 </figure>
 

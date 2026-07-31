@@ -48,31 +48,6 @@ layout: default
   </div>
 </section>
 
-<section class="section section--alt" id="workflow">
-  <div class="container">
-    <div class="row g-5 align-items-start">
-      <div class="col-12 col-lg-5">
-        <span class="section-label">Documentation workflow</span>
-        <h2 class="section-heading">{{ c.workflow.heading }}</h2>
-        <p class="section-lead">{{ c.workflow.intro }}</p>
-      </div>
-      <div class="col-12 col-lg-7">
-        <div class="workflow-list">
-          {% for step in c.workflow.steps %}
-          <div class="workflow-step">
-            <span class="workflow-step__number">{{ forloop.index }}</span>
-            <div>
-              <h3>{{ step.title }}</h3>
-              <p>{{ step.body }}</p>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section join-cta">
   <div class="container text-center">
     <h2 class="join-cta__heading">{{ c.join_cta.heading }}</h2>
