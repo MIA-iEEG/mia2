@@ -12,7 +12,7 @@ function [tarray, parray] = mia_compute_ttest2distrib(dc1,dc2)
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
 %  
-% Copyright (C) 2016-2022 CNRS - Universite Aix-Marseille
+% Copyright (C) 2012-2026 CNRS - Universite Aix-Marseille
 %
 % ========================================================================
 % This software was developed by
