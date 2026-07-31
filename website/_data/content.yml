@@ -62,19 +62,6 @@ features:
       url: "/dataset/"
       label: "View dataset"
 
-workflow:
-  heading: "Repository-first documentation"
-  intro: >
-    The website is built from source in the MIA repository, so documentation
-    updates can be reviewed with code changes and published by GitHub Actions.
-  steps:
-    - title: "Edit content"
-      body: "Most reusable text, links, and navigation live in YAML files under _data."
-    - title: "Build with Jekyll"
-      body: "Layouts and includes render the same visual language used by the reference website."
-    - title: "Deploy with Pages"
-      body: "The workflow builds from the nested website directory and publishes the Pages artifact."
-
 join_cta:
   heading: "Use MIA in your research workflow"
   body: >
