@@ -23,28 +23,46 @@ permalink: /installation/
 
 ## Standalone Matlab Installation
 
-1. Go to the [MIA GitHub repository]({{ site.data.site.github_url }}).
-2. Download one of the latest archives.
-3. Unzip it somewhere on your computer, for example:
-   - Windows: `Documents\mia`
-   - Linux: `/usr/local/mia` or `~/mia`
-   - macOS: `Applications/mia`
-4. Create a separate `mia_db` folder for the MIA database, for example:
-   - Windows: `Documents\mia_db`
-   - Linux: `/home/username/mia_db`
-   - macOS: `Documents/mia_db`
+Use this route if you do not run Brainstorm, or if you want to read and modify
+the MIA source.
+
+**1. Get the code.** Either download the latest archive from the
+[MIA GitHub repository]({{ site.data.site.github_url }}) and unzip it, or clone
+the repository:
+
+```
+git clone {{ site.data.site.github_url }}.git mia
+```
+
+Cloning is worth preferring if you expect to update, since later versions are
+then a `git pull` away.
+
+**2. Put the program folder somewhere you can write to** without administrator
+rights:
+
+- Windows: `Documents\mia`
+- macOS: `~/Documents/mia`
+- Linux: `~/mia`
+
+**3. Create a separate, empty folder for the MIA database**, next to the program
+folder rather than inside it:
+
+- Windows: `Documents\mia_db`
+- macOS: `~/Documents/mia_db`
+- Linux: `~/mia_db`
 
 <div class="callout callout--warning">
   <strong>Important:</strong> never create the database folder inside the program
-  folder. It may be deleted when updating MIA.
+  folder. It may be deleted when updating MIA, taking your analyses with it.
+  Back up <code>mia_db</code> regularly.
 </div>
-
-Set up regular backups for your `mia_db` folder so analysis work is not lost.
 
 ## Add MIA To Matlab
 
 - Start Matlab.
-- Add the MIA folder and subfolders to the Matlab path.
+- Add the MIA folder **and its subfolders** to the Matlab path
+  (`Home → Set Path → Add with Subfolders`), then save the path so MIA is still
+  available the next time you start Matlab.
 
 <figure class="figure-large" markdown="0">
   <img src="{{ '/assets/images/installation/matlab-add-path.png' | relative_url }}" alt="Matlab dialog showing how to add the MIA folder and subfolders to the path" loading="lazy">
@@ -52,8 +70,11 @@ Set up regular backups for your `mia_db` folder so analysis work is not lost.
 </figure>
 
 - Type `mia` in the Matlab command window.
-- When asked for the MIA database folder, choose the `mia_db` folder you created.
-- Continue with the tutorial material linked from the [Resources]({{ '/resources/' | relative_url }}) page.
+- On the first run only, MIA asks for a database directory. Choose the empty
+  `mia_db` folder you created — it must be empty, and it is remembered from then
+  on.
+- Continue with the [tutorial]({{ '/tutorial/' | relative_url }}), or browse the
+  [Resources]({{ '/resources/' | relative_url }}) page.
 
 ## Requirements
 
