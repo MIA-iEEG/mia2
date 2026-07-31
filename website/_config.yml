@@ -4,8 +4,8 @@ description: >
   MIA is a Matlab toolbox for multi-patient intracranial EEG analysis,
   with Brainstorm integration, shared tutorial material, and companion data.
 
-url: "https://dewmith.github.io"
-baseurl: "/mia"
+url: "https://mia-ieeg.github.io"
+baseurl: "/mia2"
 
 markdown: kramdown
 kramdown:
