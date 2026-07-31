@@ -22,7 +22,7 @@ In Brainstorm, open:
 
 `Run → Add process icon → Standardize → MIA: Concatenate Channels`
 
-<div class="tutorial-figure-grid tutorial-figure-grid--menu">
+<div class="tutorial-figure-grid tutorial-figure-grid--menu" markdown="0">
   <figure class="tutorial-figure">
     <img src="{{ '/assets/images/tutorial/concatenate-channels-menu.png' | relative_url }}" alt="Brainstorm process menu with MIA Concatenate Channels selected" loading="lazy">
     <figcaption>Select MIA: Concatenate Channels from the Standardize process group.</figcaption>
@@ -59,7 +59,7 @@ In Brainstorm, open:
 
 `Frequency → MIA: Time-frequency (Morlet by band + 1/f norm)`
 
-<div class="tutorial-figure-grid tutorial-figure-grid--menu">
+<div class="tutorial-figure-grid tutorial-figure-grid--menu" markdown="0">
   <figure class="tutorial-figure">
     <img src="{{ '/assets/images/tutorial/morlet-time-frequency-menu.png' | relative_url }}" alt="Brainstorm Frequency menu with the MIA Morlet time-frequency process selected" loading="lazy">
     <figcaption>Select the MIA Morlet time-frequency process.</figcaption>
@@ -95,7 +95,7 @@ In Brainstorm, open:
 
 `Run → Add process icon → Test → MIA: Convert from BST to MIA`
 
-<div class="tutorial-figure-grid tutorial-figure-grid--menu">
+<div class="tutorial-figure-grid tutorial-figure-grid--menu" markdown="0">
   <figure class="tutorial-figure">
     <img src="{{ '/assets/images/tutorial/bst-to-mia-menu.png' | relative_url }}" alt="Brainstorm process menu with Convert from BST to MIA selected" loading="lazy">
     <figcaption>Select MIA: Convert from BST to MIA.</figcaption>
@@ -142,7 +142,7 @@ In Brainstorm, open:
 
 `Run → Add process icon → Test → MIA: Visualize Averages`
 
-<div class="tutorial-figure-grid tutorial-figure-grid--three">
+<div class="tutorial-figure-grid tutorial-figure-grid--three" markdown="0">
   <figure class="tutorial-figure">
     <img src="{{ '/assets/images/tutorial/visualize-averages-menu.png' | relative_url }}" alt="Brainstorm process menu with MIA Visualize Averages selected" loading="lazy">
     <figcaption>Select MIA: Visualize Averages.</figcaption>
@@ -191,7 +191,7 @@ Select one or more ROI rows and then:
 - Use **ROIs Gd Ave** to display average ROI activity.
 - Use **Close figs** to close figures opened from this window.
 
-<div class="tutorial-result-with-legend">
+<div class="tutorial-result-with-legend" markdown="0">
   <figure class="tutorial-figure">
     <img src="{{ '/assets/images/tutorial/individual-condition-results.png' | relative_url }}" alt="MIA individual-condition ROI results table and plots" loading="lazy">
     <figcaption>Individual-condition ROI results.</figcaption>
@@ -202,7 +202,7 @@ Select one or more ROI rows and then:
   </figure>
 </div>
 
-<figure class="tutorial-figure tutorial-figure--wide">
+<figure class="tutorial-figure tutorial-figure--wide" markdown="0">
   <img src="{{ '/assets/images/tutorial/individual-roi-figure.png' | relative_url }}" alt="Detailed MIA individual ROI time-series and heatmap figure" loading="lazy">
   <figcaption>Detailed ROI activity showing z-scored time series and a heatmap.</figcaption>
 </figure>
@@ -213,7 +213,7 @@ When multiple conditions are selected, the interface adds a **Group** tab. It
 compares the selected conditions using ROIs present across conditions. Select an
 ROI and click **Group ROI Timeseries** to plot the conditions together.
 
-<div class="tutorial-result-with-legend">
+<div class="tutorial-result-with-legend" markdown="0">
   <figure class="tutorial-figure">
     <img src="{{ '/assets/images/tutorial/group-comparison-results.png' | relative_url }}" alt="MIA group-comparison ROI results table and plots" loading="lazy">
     <figcaption>Group comparison for the selected conditions.</figcaption>
@@ -228,7 +228,7 @@ The generated line plots show z-scored activity over time. The heatmap
 summarizes activity across contacts or subjects, and its color bar indicates
 z-score values.
 
-<figure class="tutorial-figure tutorial-figure--wide">
+<figure class="tutorial-figure tutorial-figure--wide" markdown="0">
   <img src="{{ '/assets/images/tutorial/group-roi-timeseries.png' | relative_url }}" alt="MIA group ROI time-series comparison figure" loading="lazy">
   <figcaption>Time-series comparison for a selected ROI across conditions.</figcaption>
 </figure>
@@ -277,7 +277,7 @@ This process calculates a statistical contrast between two conditions.
 3. Run the process to load both conditions, calculate the contrast, and create
    statistical results for visualization and further analysis.
 
-<figure class="tutorial-figure tutorial-figure--menu-only">
+<figure class="tutorial-figure tutorial-figure--menu-only" markdown="0">
   <img src="{{ '/assets/images/tutorial/contrast-conditions-menu.png' | relative_url }}" alt="Brainstorm process menu for contrasting two MIA conditions" loading="lazy">
   <figcaption>Select the MIA condition-contrast process after adding two conditions.</figcaption>
 </figure>

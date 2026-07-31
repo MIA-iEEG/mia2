@@ -4,23 +4,24 @@
    ============================================================ */
 
 :root {
-  --color-primary: #000099;
-  --color-primary-dark: #000070;
-  --color-primary-light: #ececff;
-  --color-gold: #ffcc00;
-  --color-gold-dark: #d4a800;
-  --color-dark: #0d0d2b;
-  --color-text: #19192d;
-  --color-text-muted: #5d5d7a;
-  --color-bg: #faf8f5;
-  --color-bg-alt: #f0ede8;
+  --color-primary: #c8310a;
+  --color-primary-dark: #a02607;
+  --color-primary-light: #fdeae3;
+  --color-gold: #fce8a0;
+  --color-gold-dark: #f4d472;
+  --color-gold-text: #7a4800;
+  --color-dark: #2a1a10;
+  --color-text: #1a0a00;
+  --color-text-muted: #7a6050;
+  --color-bg: #fdf6ee;
+  --color-bg-alt: #f7ebdc;
   --color-surface: #ffffff;
-  --color-border: #e2ddd5;
+  --color-border: #e8ddc8;
 
-  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-body: "Lora", Georgia, "Times New Roman", serif;
-  --font-ui: "Lato", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-brand: "Comfortaa", system-ui, sans-serif;
+  --font-heading: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ui: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand: "Nunito", system-ui, sans-serif;
 
   --step-0: clamp(1rem, 0.94rem + 0.24vw, 1.125rem);
   --step-1: clamp(1.125rem, 1.02rem + 0.48vw, 1.375rem);
@@ -29,12 +30,13 @@
   --step-4: clamp(2.25rem, 1.88rem + 1.85vw, 3.35rem);
   --step-5: clamp(2.75rem, 2.15rem + 3vw, 4.6rem);
 
-  --radius-sm: 6px;
-  --radius: 10px;
-  --radius-lg: 16px;
-  --shadow-sm: 0 1px 4px rgba(0, 0, 100, 0.08);
-  --shadow: 0 6px 22px rgba(0, 0, 100, 0.1);
-  --shadow-lg: 0 16px 44px rgba(0, 0, 100, 0.16);
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 4px rgba(90, 40, 10, 0.07);
+  --shadow: 0 6px 22px rgba(90, 40, 10, 0.1);
+  --shadow-lg: 0 16px 44px rgba(90, 40, 10, 0.16);
   --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --section-py: clamp(2.8rem, 6vw, 5rem);
 }
@@ -100,17 +102,17 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: var(--step-4);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 h2 {
   font-size: var(--step-3);
-  font-weight: 600;
+  font-weight: 800;
 }
 
 h3 {
   font-size: var(--step-2);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 p {
@@ -161,8 +163,8 @@ code {
   justify-content: center;
   gap: 0.4em;
   border: 2px solid transparent;
-  border-radius: var(--radius-sm);
-  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 1.5rem;
   font-family: var(--font-ui);
   font-size: 0.9rem;
   font-weight: 700;
@@ -205,13 +207,25 @@ code {
 .btn-gold {
   background: var(--color-gold);
   border-color: var(--color-gold);
-  color: var(--color-text);
+  color: var(--color-gold-text);
 }
 
 .btn-gold:hover {
   background: var(--color-gold-dark);
   border-color: var(--color-gold-dark);
-  color: var(--color-text);
+  color: var(--color-gold-text);
+}
+
+.btn-outline-primary {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-primary);
+}
+
+.btn-outline-primary:hover {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
 }
 
 .btn-outline-light {
@@ -242,9 +256,9 @@ code {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(250, 248, 245, 0.97);
+  background: rgba(253, 246, 238, 0.97);
   border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 1px 8px rgba(0, 0, 100, 0.06);
+  box-shadow: 0 1px 8px rgba(90, 40, 10, 0.06);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -270,6 +284,7 @@ code {
   width: 92px;
   height: auto;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .navbar-brand__text {
@@ -281,7 +296,7 @@ code {
 .navbar-brand__name {
   font-family: var(--font-brand);
   font-size: 1.18rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-primary);
 }
 
@@ -321,93 +336,112 @@ code {
 .hero {
   position: relative;
   display: grid;
-  min-height: clamp(560px, 82vh, 760px);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  min-height: clamp(500px, 72vh, 680px);
   overflow: hidden;
-  background:
-    radial-gradient(circle at 12% 20%, rgba(255, 204, 0, 0.22), transparent 26rem),
-    radial-gradient(circle at 88% 28%, rgba(255, 255, 255, 0.18), transparent 20rem),
-    linear-gradient(135deg, var(--color-primary-dark), var(--color-primary) 58%, #2525b5);
-  color: #fff;
-}
-
-.hero__media,
-.hero__content {
-  grid-area: 1 / 1;
-}
-
-.hero__media {
-  position: relative;
-}
-
-.hero__grid {
-  position: absolute;
-  inset: 0;
-  opacity: 0.16;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.42) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.42) 1px, transparent 1px);
-  background-size: 54px 54px;
-  mask-image: radial-gradient(circle at center, black, transparent 72%);
-}
-
-.hero__wave {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 120px;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 .hero__content {
-  position: relative;
-  z-index: 1;
   display: flex;
-  align-items: center;
-  padding: 6.5rem 0 5rem;
-}
-
-.hero__badge {
-  display: inline-flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  margin-bottom: 1.6rem;
-  padding: 1rem 1.5rem;
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: var(--shadow-lg);
+  padding: clamp(2.5rem, 4vw, 3.5rem) clamp(1.5rem, 4.5vw, 4rem);
 }
 
+/* The logo PNG ships with an opaque white background; multiply drops it
+   onto the cream panel without needing a re-cut asset. */
 .hero__logo {
-  width: min(260px, 64vw);
+  width: min(360px, 100%);
   height: auto;
-}
-
-.hero__headline {
-  color: #fff;
-  font-size: var(--step-5);
-  text-wrap: balance;
+  margin-bottom: 1.25rem;
+  mix-blend-mode: multiply;
 }
 
 .hero__strapline {
-  max-width: 760px;
-  margin: 1.25rem auto 0;
-  color: rgba(255, 255, 255, 0.9);
+  max-width: 34rem;
+  margin: 0;
+  color: var(--color-text-muted);
   font-size: var(--step-1);
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 0.7rem;
+  margin-top: 1.6rem;
 }
 
-.hero__scroll-cue {
-  display: inline-flex;
-  margin-top: 2.4rem;
-  color: rgba(255, 255, 255, 0.78);
-  text-decoration: none;
+.hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.7rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero__tags-label {
+  color: var(--color-text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.hero__tag {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 0.2rem 0.75rem;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.hero__figure {
+  position: relative;
+  margin: 0;
+  background: #000;
+}
+
+.hero__figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Soft seam melting the cream panel into the visualization. A blurred copy of
+   the image is masked over the join so the electrodes dissolve rather than
+   stopping at a hard edge; the gradient then carries it into the cream. */
+.hero__figure::before,
+.hero__figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero__figure::before {
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  mask-image: linear-gradient(to right, #000 0%, #000 8%, transparent 22%);
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 8%, transparent 22%);
+}
+
+.hero__figure::after {
+  background: linear-gradient(
+    to right,
+    var(--color-bg) 0%,
+    var(--color-bg) 6%,
+    rgba(253, 246, 238, 0.82) 13%,
+    rgba(253, 246, 238, 0.35) 22%,
+    transparent 34%
+  );
 }
 
 .section {
@@ -490,6 +524,7 @@ code {
   max-width: 86%;
   max-height: 112px;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .feature-card h3 {
@@ -506,49 +541,9 @@ code {
   text-decoration: none;
 }
 
-.workflow-list {
-  display: grid;
-  gap: 1rem;
-}
-
-.workflow-step {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: start;
-  padding: 1.2rem 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.workflow-step:first-child {
-  padding-top: 0;
-}
-
-.workflow-step:last-child {
-  border-bottom: 0;
-}
-
-.workflow-step__number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 999px;
-  background: var(--color-primary);
-  color: #fff;
-  font-family: var(--font-ui);
-  font-weight: 700;
-}
-
-.workflow-step h3 {
-  margin-bottom: 0.35rem;
-  font-size: var(--step-1);
-}
-
 .join-cta {
   background:
-    radial-gradient(circle at 22% 20%, rgba(255, 204, 0, 0.24), transparent 18rem),
+    radial-gradient(circle at 22% 20%, rgba(252, 232, 160, 0.24), transparent 18rem),
     linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
   color: #fff;
 }
@@ -576,7 +571,7 @@ code {
   overflow: hidden;
   padding: clamp(4.5rem, 10vw, 7rem) 0 clamp(3.2rem, 7vw, 5rem);
   background:
-    radial-gradient(circle at 12% 15%, rgba(255, 204, 0, 0.25), transparent 18rem),
+    radial-gradient(circle at 12% 15%, rgba(252, 232, 160, 0.25), transparent 18rem),
     linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
   color: #fff;
 }
@@ -628,6 +623,41 @@ code {
 .content-logo {
   max-width: 300px;
   margin: 0 0 2rem;
+  mix-blend-mode: multiply;
+}
+
+/* Conference logo above a course entry. The source is a JPEG, so its white
+   background is opaque; multiply drops it onto the cream page. */
+.course-logo {
+  display: block;
+  width: auto;
+  max-width: min(240px, 100%);
+  height: auto;
+  margin: 0 0 1rem;
+  mix-blend-mode: multiply;
+}
+
+/* Funder credit under a course entry. This logo is a PNG with real
+   transparency, so it needs no blend mode. */
+.course-support {
+  margin: 1.6rem 0 0;
+}
+
+.course-support__label {
+  margin-bottom: 0.5rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.course-support img {
+  display: block;
+  width: auto;
+  max-width: min(260px, 100%);
+  height: auto;
 }
 
 .callout {
@@ -751,7 +781,7 @@ code {
 }
 
 .resource-card:hover {
-  border-color: rgba(0, 0, 153, 0.28);
+  border-color: rgba(200, 49, 10, 0.28);
   color: var(--color-text);
   box-shadow: var(--shadow);
 }
@@ -911,7 +941,27 @@ code {
   }
 
   .hero {
-    min-height: 620px;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .hero__figure {
+    height: clamp(300px, 46vw, 420px);
+  }
+
+  /* Stacked: fade from the top instead of the left. */
+  .hero__figure::before {
+    mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.65) 10%, transparent 24%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.65) 10%, transparent 24%);
+  }
+
+  .hero__figure::after {
+    background: linear-gradient(
+      to bottom,
+      var(--color-bg) 0%,
+      rgba(253, 246, 238, 0.55) 12%,
+      transparent 30%
+    );
   }
 }
 
@@ -933,6 +983,10 @@ code {
   .hero__actions .btn,
   .join-cta__actions .btn {
     width: 100%;
+  }
+
+  .hero__logo {
+    width: min(320px, 100%);
   }
 
   .resource-grid {

@@ -19,10 +19,10 @@ permalink: /resources/
     <strong>Online tutorials</strong>
     <span>Follow the updated MIA2 workflow from Brainstorm preparation through condition contrasts.</span>
   </a>
-  <a class="resource-card" href="{{ site.data.site.courses_url }}" target="_blank" rel="noopener">
+  <a class="resource-card" href="{{ site.data.site.courses_url | relative_url }}">
     <span class="resource-card__label">Training</span>
     <strong>Course material</strong>
-    <span>Access historical training session material.</span>
+    <span>Lectures and walkthroughs from past MIA training sessions.</span>
   </a>
   <a class="resource-card" href="{{ site.data.site.zenodo_url }}" target="_blank" rel="noopener">
     <span class="resource-card__label">Data</span>

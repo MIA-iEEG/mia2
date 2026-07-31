@@ -6,17 +6,28 @@ description: >
   Brainstorm integration, tutorials, and companion data.
 
 version: "stale_v1.0"
-url: "https://dewmith.github.io/mia"
 
 github_url: "https://github.com/MIA-iEEG/mia2"
 upstream_url: "https://github.com/MIA-iEEG/mia2"
 issues_url: "https://github.com/MIA-iEEG/mia2/issues"
 zenodo_url: "https://zenodo.org/record/4767855"
-courses_url: "https://www.neurotrack.fr/mia/training-sessions/"
+courses_url: "/courses/"
+
+# Course material still served by the former MIA site. These are the only
+# neurotrack.fr links left; rehosting the PDFs here is a single edit to this
+# block (48.6 MB in total, so it has not been done unilaterally).
+courses:
+  wired2024_lecture: "https://www.neurotrack.fr/wp-content/uploads/2024/03/wired2024_lecture_BST-MIA_Introduction.pdf"
+  wired2024_bst_walkthrough: "https://www.neurotrack.fr/wp-content/uploads/2024/03/wired2024_brainstorm_walkthrough.pdf"
+  wired2024_mia_walkthrough: "https://www.neurotrack.fr/wp-content/uploads/2024/03/wired2024_mia_walkthrough.pdf"
+  int2018_lecture: "https://www.neurotrack.fr/wp-content/uploads/2021/09/2018_workshopTFSEEG_Introduction.pdf"
+  int2018_walkthrough: "https://www.neurotrack.fr/wp-content/uploads/2021/09/walkthrough_workshopMIA_INTMarseille_2018.pdf"
+  lpl2017_lecture: "https://www.neurotrack.fr/wp-content/uploads/2021/09/2017_workshopTFSEEG_Dubarry.pdf"
+  lpl2017_walkthrough: "https://www.neurotrack.fr/wp-content/uploads/2021/09/walkthrough_workshopTFSEEG_2017.pdf"
 
 logo: "/assets/images/logo/mia_newlogo3.png"
 logo_alt: "MIA toolbox logo"
-icon: "/assets/images/logo/mia_icon.svg"
+icon: "/assets/images/logo/mia_newlogo3.png"
 
 footer_text: >
   MIA is released for research purposes. It should not be used for clinical
