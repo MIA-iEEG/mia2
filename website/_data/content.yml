@@ -8,7 +8,7 @@ hero:
     url: "/installation/"
   cta_secondary:
     label: "View on GitHub"
-    url: "https://github.com/Dewmith/mia"
+    url: "https://github.com/MIA-iEEG/mia2"
   cta_tertiary:
     label: "Shared dataset"
     url: "/dataset/"
@@ -45,10 +45,10 @@ features:
     - title: "Learn"
       image: "/assets/images/installation/matlab-add-path.png"
       body: >
-        Follow tutorial and course material from the original MIA website while
-        the repository-centered documentation grows.
-      url: "/resources/"
-      label: "Open resources"
+        Follow the updated MIA2 workflow from Brainstorm channel preparation
+        through ROI visualization and condition contrasts.
+      url: "/tutorial/"
+      label: "Open tutorial"
     - title: "Reuse data"
       image: "/assets/images/dataset/zenodo-badge.png"
       body: >
@@ -80,4 +80,4 @@ join_cta:
     url: "/installation/"
   cta_secondary:
     label: "Open GitHub"
-    url: "https://github.com/Dewmith/mia"
+    url: "https://github.com/MIA-iEEG/mia2"

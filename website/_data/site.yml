@@ -8,11 +8,10 @@ description: >
 version: "stale_v1.0"
 url: "https://dewmith.github.io/mia"
 
-github_url: "https://github.com/Dewmith/mia"
-upstream_url: "https://github.com/MIA-iEEG/mia"
-issues_url: "https://github.com/Dewmith/mia/issues"
+github_url: "https://github.com/MIA-iEEG/mia2"
+upstream_url: "https://github.com/MIA-iEEG/mia2"
+issues_url: "https://github.com/MIA-iEEG/mia2/issues"
 zenodo_url: "https://zenodo.org/record/4767855"
-tutorials_url: "https://www.neurotrack.fr/mia/tutorials/"
 courses_url: "https://www.neurotrack.fr/mia/training-sessions/"
 
 logo: "/assets/images/logo/mia_newlogo3.png"
