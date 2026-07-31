@@ -139,10 +139,10 @@ function OutputFiles = Run(sProcess, sInputs) %#ok<DEFNU>
         bst_history = cell(size(DataMat.History,1), size(DataMat.History,2),length(iGroups{pp}));
 
         % Reading all the group files in a big matrix
-        for i = 1:length(iGroups{pp})
+        for ii = 1:length(iGroups{pp})
 
             % Read the file #i
-            DataMat = in_bst(sInputs(iGroups{pp}(i)).FileName, [], 0);
+            DataMat = in_bst(sInputs(iGroups{pp}(ii)).FileName, [], 0);
 
             % Check the dimensions of the recordings matrix in this file
             if ~isequal(size(DataMat.F), epochSize)
@@ -152,8 +152,8 @@ function OutputFiles = Run(sProcess, sInputs) %#ok<DEFNU>
                 return;
             end
             % Add the current file in the big load matrix
-            F(:,:,i) = DataMat.F(iChannels(flag_good_chan(iChannels)),:,:);
-            bst_history(:,:,i) = DataMat.History ; 
+            F(:,:,ii) = DataMat.F(iChannels(flag_good_chan(iChannels)),:,:);
+            bst_history(:,:,ii) = DataMat.History ; 
         end
 
         if exist(mia_pt_dir) 
