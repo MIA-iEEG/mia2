@@ -1,7 +1,7 @@
 function [id, labels, idx] = mia_filter_localized_channels(m_table_as, idx_subjloc , id_contact, id_ncontact, bilabels, inclusive)
 % ***********************************************************************
 % ***********************************************************************
-% Copyright (C) 2016-2022 CNRS - Universite Aix-Marseille
+% Copyright (C) 2012-2026 CNRS - Universite Aix-Marseille
 %
 % This software was developed by
 % Anne-Sophie Dubarry (CNRS University of Aix-Marseille)

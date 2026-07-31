@@ -2,7 +2,7 @@ function [] = mia_display_roi_and_permcorr(roi,OPTIONS)
 %
 % ***********************************************************************
 %
-%  Copyright (C) 2016-2018 CNRS - Universite Aix-Marseille
+%  Copyright (C) 2012-2026 CNRS - Universite Aix-Marseille
 %
 %  This software was developed by
 %       Anne-Sophie Dubarry (CNRS Universite Aix-Marseille)

@@ -6,7 +6,7 @@ MIA™ is a Matlab toolbox to analyze intracranial EEG signals over multiple p
 
 MIA was developed by <a href="http://www.neurotrack.fr/contact/">A.-Sophie Dubarry</a> at the Laboratoire de Psychologie Cognitive and Laboratoire Parole et Langage (CNRS, Aix-Marseille) in collaboration with <a href="https://www.researchgate.net/profile/Catherine_Liegeois-Chauvel">Catherine Liégeois-Chauvel</a> (Cleveland Clinic), <a href="http://ins.univ-amu.fr/research-teams/team-member/a.trebuchon/">Agnès Trébuchon</a> (INS, La Timone), <a href="http://ins.univ-amu.fr/fr/research-teams/team-member/c.benar/">Christian Bénar</a> (INS) <a href="https://lpc.univ-amu.fr/fr/profile/alario-francois-xavier">F.-Xavier Alario</a> (LPC). The software has been successfully used in last 3 years to support intracerebral EEG signal analysis in studies published in peer-reviewed journals or presented at neuroscience International meetings (see list below).
 
-MIA™ toolbox is completely FREE for all Non-Commercial Academic Applications under Creative Commons Public License (CCPL BY-NC-ND).
+MIA™ toolbox is free software, distributed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License version 3</a>. You are free to use, modify and redistribute it under the terms of that license. Anybody distributing a software incorporating MIA is asked to give credits by citing the appropriate publications (see list below).
 
 <strong>DISCLAIMER:</strong>  MIA™ was implemented and released for research purposes only. MIA™ toolbox, or data obtained from MIA toolbox, should not be used for clinical purposes.
 &nbsp;
@@ -60,6 +60,6 @@ Trébuchon, A., Liegeois-Chauvel, C., Martinez, J.G., Alario F.-X.
 <p style="padding-left: 60px;">A.-S Dubarry, A Llorens, A Trébuchon, R Carron, C Liégeois- Chauvel, C Bénar, F.-X Alario</p>
 &nbsp;
 
-<img class="alignnone size-full wp-image-284" src="http://www.neurotrack.fr/wp-content/uploads/2018/05/Copyrigth.png" alt="" width="88" height="31" />   <span style="color: #999999;">  <em>A.-Sophie Dubarry 2012-2022.</em></span>
+<a href="https://www.gnu.org/licenses/gpl-3.0.html"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3" /></a>   <span style="color: #999999;">  <em>A.-Sophie Dubarry 2012-2026.</em></span>
 
 &nbsp;
