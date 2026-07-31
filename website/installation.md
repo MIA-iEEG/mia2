@@ -13,8 +13,13 @@ permalink: /installation/
 ## MIA Installation With Brainstorm
 
 - Install the latest version of [Brainstorm](https://neuroimage.usc.edu/brainstorm/Introduction).
-- Use the Brainstorm plugin menu to install MIA.
+- In the Brainstorm window, open `Plugins → sEEG → mia → Install`.
 - See the [Brainstorm plugin tutorial](https://neuroimage.usc.edu/brainstorm/Tutorials/Plugins) for the plugin workflow.
+
+<figure class="figure-large" markdown="0">
+  <img src="{{ '/assets/images/installation/brainstorm-plugin-menu.webp' | relative_url }}" alt="Brainstorm Plugins menu opened on sEEG then mia, showing the Install entry for the github-master version" loading="lazy">
+  <figcaption>Install MIA from the Brainstorm plugin menu. Once installed, the same menu offers Update, Uninstall, Load and Start MIA.</figcaption>
+</figure>
 
 ## Standalone Matlab Installation
 
@@ -41,7 +46,7 @@ Set up regular backups for your `mia_db` folder so analysis work is not lost.
 - Start Matlab.
 - Add the MIA folder and subfolders to the Matlab path.
 
-<figure class="figure-large">
+<figure class="figure-large" markdown="0">
   <img src="{{ '/assets/images/installation/matlab-add-path.png' | relative_url }}" alt="Matlab dialog showing how to add the MIA folder and subfolders to the path" loading="lazy">
   <figcaption>Add the MIA folder and all subfolders to the Matlab path.</figcaption>
 </figure>
