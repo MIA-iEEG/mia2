@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+title: "MIA: Multi-patient Intracranial EEG Analysis"
+message: >-
+  If you use this software, please cite both the software itself (this file,
+  in the version you actually ran) and the paper listed under
+  preferred-citation. Citing the version credits every contributor to that
+  release, not only the authors of the introductory paper.
+type: software
+authors:
+  - family-names: Dubarry
+    given-names: Anne-Sophie
+    email: anne-sophie.dubarry@cnrs.fr
+    affiliation: CNRS, Aix-Marseille Université
+  - family-names: Wang
+    given-names: Shuai
+    email: shuai.WANG@univ-amu.fr
+    affiliation: Aix-Marseille Université
+  - family-names: Weerasena
+    given-names: Dewmith
+    email: dewmithweerasena.edu@gmail.com
+repository-code: "https://github.com/MIA-iEEG/mia2"
+abstract: >-
+  A Matlab toolbox for the group-level analysis of intracerebral EEG
+  (SEEG/iEEG) signals recorded in multiple patients.
+keywords:
+  - intracranial EEG
+  - SEEG
+  - iEEG
+  - electrophysiology
+  - Matlab
+  - Brainstorm
+license: GPL-3.0-or-later
+version: "1.0"
+preferred-citation:
+  type: article
+  title: >-
+    An open-source toolbox for Multi-patient Intracranial EEG Analysis (MIA)
+  authors:
+    - family-names: Dubarry
+      given-names: Anne-Sophie
+    - family-names: Liégeois-Chauvel
+      given-names: Catherine
+    - family-names: Trébuchon
+      given-names: Agnès
+    - family-names: Bénar
+      given-names: Christian
+    - family-names: Alario
+      given-names: François-Xavier
+  journal: NeuroImage
+  volume: 257
+  start: 119251
+  year: 2022
+  doi: 10.1016/j.neuroimage.2022.119251
