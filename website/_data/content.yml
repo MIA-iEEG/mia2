@@ -12,6 +12,11 @@ hero:
   cta_tertiary:
     label: "Shared dataset"
     url: "/dataset/"
+  tags:
+    - "iEEG / SEEG"
+    - "Group analysis"
+    - "Brainstorm"
+    - "Matlab"
 
 overview:
   heading: "A focused toolbox for group iEEG analysis"
