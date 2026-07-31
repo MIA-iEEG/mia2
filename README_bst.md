@@ -5,7 +5,7 @@ Contributors:
 - Shuai WANG, shuai.WANG.AT.univ-amu.fr
 - Anne-Sophie DUBARRY, anne-sophie.dubarry.AT.cnrs.fr
 
-Contact : https://www.neurotrack.fr/contact/
+Contact : https://github.com/MIA-iEEG/mia2/issues
 Web : https://github.com/MIA-iEEG/mia2
 
 The MIA (Multi-patient Intracranial EEG Analysis) software is a Matlab

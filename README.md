@@ -1,22 +1,22 @@
-<img class="alignnone size-medium wp-image-289" src="http://www.neurotrack.fr/wp-content/uploads/2021/12/mia_newlogo3.png" alt="" width="300" height="145" />
+<img class="alignnone size-medium wp-image-289" src="website/assets/images/logo/mia_newlogo3.png" alt="" width="300" height="145" />
 
 &nbsp;
 
 MIA™ is a Matlab toolbox to analyze intracranial EEG signals over multiple patients.
 
-MIA was developed by <a href="http://www.neurotrack.fr/contact/">A.-Sophie Dubarry</a> at the Laboratoire de Psychologie Cognitive and Laboratoire Parole et Langage (CNRS, Aix-Marseille) in collaboration with <a href="https://www.researchgate.net/profile/Catherine_Liegeois-Chauvel">Catherine Liégeois-Chauvel</a> (Cleveland Clinic), <a href="http://ins.univ-amu.fr/research-teams/team-member/a.trebuchon/">Agnès Trébuchon</a> (INS, La Timone), <a href="http://ins.univ-amu.fr/fr/research-teams/team-member/c.benar/">Christian Bénar</a> (INS) <a href="https://lpc.univ-amu.fr/fr/profile/alario-francois-xavier">F.-Xavier Alario</a> (LPC). The software has been successfully used in last 3 years to support intracerebral EEG signal analysis in studies published in peer-reviewed journals or presented at neuroscience International meetings (see list below).
+MIA was developed by <a href="https://github.com/MIA-iEEG/mia2/issues">A.-Sophie Dubarry</a> at the Laboratoire de Psychologie Cognitive and Laboratoire Parole et Langage (CNRS, Aix-Marseille) in collaboration with <a href="https://www.researchgate.net/profile/Catherine_Liegeois-Chauvel">Catherine Liégeois-Chauvel</a> (Cleveland Clinic), <a href="http://ins.univ-amu.fr/research-teams/team-member/a.trebuchon/">Agnès Trébuchon</a> (INS, La Timone), <a href="http://ins.univ-amu.fr/fr/research-teams/team-member/c.benar/">Christian Bénar</a> (INS) <a href="https://lpc.univ-amu.fr/fr/profile/alario-francois-xavier">F.-Xavier Alario</a> (LPC). The software has been successfully used in last 3 years to support intracerebral EEG signal analysis in studies published in peer-reviewed journals or presented at neuroscience International meetings (see list below).
 
 MIA™ toolbox is free software, distributed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License version 3</a>. You are free to use, modify and redistribute it under the terms of that license. Anybody distributing a software incorporating MIA is asked to give credits by citing the appropriate publications (see list below).
 
 <strong>DISCLAIMER:</strong>  MIA™ was implemented and released for research purposes only. MIA™ toolbox, or data obtained from MIA toolbox, should not be used for clinical purposes.
 &nbsp;
 <h2>Get started</h2>
-Start with the repository's <a href="MIA_Documentation.md">MIA2 TUTORIAL</a>, or read the <a href="https://dewmith.github.io/mia/tutorial/">website version</a>. Support is available through the public <a href="https://github.com/MIA-iEEG/mia2">GitHub repository</a>, and the full companion <a href="https://zenodo.org/record/4767855">dataset is available on Zenodo</a>. We also provide past <a href="http://www.neurotrack.fr/mia/training-sessions/">course material</a>.
+Start with the repository's <a href="MIA_Documentation.md">MIA2 TUTORIAL</a>, or read the <a href="https://mia-ieeg.github.io/mia2/tutorial/">website version</a>. Support is available through the public <a href="https://github.com/MIA-iEEG/mia2">GitHub repository</a>, and the full companion <a href="https://zenodo.org/record/4767855">dataset is available on Zenodo</a>. We also provide past <a href="https://mia-ieeg.github.io/mia2/courses/">course material</a>.
 
  
 <h2>Publications</h2>
 
-Revealing the co-existence of written and spoken language coding neural populations in the visual word form area. <strong><em>Imaging Neuroscience</em>,</strong> <a href="https://www.neurotrack.fr/mia/_wp_link_placeholder">[doi]</a> 2025. 
+Revealing the co-existence of written and spoken language coding neural populations in the visual word form area. <strong><em>Imaging Neuroscience</em>,</strong> 2025. 
 Shuai Wang, Anne-Sophie Dubarry, Valérie Chanoine, Julien Sein, Jean-Luc Anton, Bruno Nazarian, Manuel R. Mercier, Agnès Trébuchon, Chotiga Pattamadilok.
 
 An open-source toolbox for Multi-patient Intracranial EEG Analysis (MIA). <strong><em>NeuroImage</em>,</strong>, <em>2022</em>;257: 119251 <a href="http://doi.org/10.1016/j.neuroimage.2022.119251">[doi]</a> 
