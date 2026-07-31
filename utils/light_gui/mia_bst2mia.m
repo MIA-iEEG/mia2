@@ -24,6 +24,11 @@ function [rois, varargout] = mia_bst2mia(Condition, ProtocolName, LabelingTable,
 %
 % Optional name-value pairs (via varargin):
 %   'Subjects'       - Cell array of subject names to process (default: all found)
+%   'SubjectsToSkip' - Cell array of subject names to exclude (default: none).
+%                      Applied after 'Subjects', so both can be combined.
+%   'Atlas'          - Name of the label column to read in the TSV table
+%                      (default: 'localisation_lectrodes', which is how
+%                      Matlab reads back the header "localisation electrodes')
 %
 % Outputs:
 %   rois    - ROI data structure processed from Brainstorm data
@@ -46,9 +51,13 @@ addRequired(p, 'ProtocolName', @ischar);
 addRequired(p, 'LabelingTable', @ischar);
 addRequired(p, 'GroupChannelFile', @ischar);
 addParameter(p, 'Subjects', {}, @(x) iscell(x) || isempty(x));
+addParameter(p, 'SubjectsToSkip', {}, @(x) iscell(x) || isempty(x));
+addParameter(p, 'Atlas', 'localisation_lectrodes', @ischar);
 parse(p, Condition, ProtocolName, LabelingTable, GroupChannelFile, varargin{:});
 
 Subjects = p.Results.Subjects;
+SubjectsToSkip = p.Results.SubjectsToSkip;
+Atlas = p.Results.Atlas;
 
 % -------------------------------------------------------------------------
 % Set Brainstorm protocol
@@ -68,19 +77,92 @@ if ~isempty(Subjects)
     subjectNames = subjectNames(ismember(subjectNames, Subjects));
 end
 
-% Read labeling table (TSV)
-coregTable = readtable(LabelingTable, "FileType", "text", 'Delimiter', '\t');
+% Then drop the subjects explicitly excluded
+if ~isempty(SubjectsToSkip)
+    subjectNames = subjectNames(~ismember(subjectNames, SubjectsToSkip));
+end
+
+if isempty(subjectNames)
+    error('mia_bst2mia:noSubject', ...
+        'No subject left to process in protocol "%s" after applying Subjects/SubjectsToSkip.', ...
+        ProtocolName);
+end
+
+% Read labeling table (TSV) through the shared MIA reader. Passing the atlas
+% and no patient keeps it silent (no selection dialog) and returns one entry
+% per patient found in the table.
+tsvOPTIONS.patients = subjectNames;
+tsvOPTIONS.atlas    = Atlas;
+[struct_table, tsvStatus, tsvMessage] = mia_read_loc_tsv_table(LabelingTable, tsvOPTIONS);
+
+if tsvStatus == -1
+    error('mia_bst2mia:badLabelingTable', '%s', tsvMessage);
+elseif tsvStatus == 0
+    warning('mia_bst2mia:duplicateContacts', ...
+        'Some contacts are listed twice in %s:%s', LabelingTable, tsvMessage);
+end
+
 chanStruct = load(GroupChannelFile);
 
-% Keep only subjects present in BST database
-coregTable(~ismember(coregTable{:,1}, subjectNames), :) = [];
+% Flatten the per-patient structures into the n x 5 MIA table:
+% {subject, electrode name, contact number, laterality, ROI label}
+mTable = cell(0,5);
+coregChannelNames = {};
 
-% Build channel names from coregTable
-coregChannelNames = strcat(coregTable.Subject, '_', coregTable.Contact);
-chanNames = {chanStruct.Channel.Name};
+for iPt = 1:numel(struct_table)
+    s = struct_table{iPt};
+
+    % Keep only subjects present in BST database
+    if ~ismember(s.pt, subjectNames)
+        continue;
+    end
+
+    nContact = numel(s.elec);
+    block = cell(nContact, 5);
+    block(:,1) = {s.pt};
+
+    % Extract alpha characters and numbers from contact names
+    for iC = 1:nContact
+        label = s.elec{iC};
+        block{iC,2} = label(~isstrprop(label, 'digit'));
+        block{iC,3} = str2double(label(isstrprop(label, 'digit')));
+    end
+
+    block(:,4) = s.lat;
+    block(:,5) = s.roi;
+
+    mTable = cat(1, mTable, block);
+
+    % Double underscore: this is how process_mia_channel_concat names the
+    % contacts of the group channel file (Subject__Contact). The single
+    % underscore used further down is a different convention, for the bipolar
+    % montage names built from each subject's own data.
+    coregChannelNames = cat(1, coregChannelNames, strcat(s.pt, '__', s.elec));
+end
+
+% Remove rows with empty ROI labels
+isEmptyRoi = cellfun(@isempty, mTable(:,5));
+mTable(isEmptyRoi, :) = [];
+coregChannelNames(isEmptyRoi) = [];
 
 % Find matching channels between coreg and chanStruct
+chanNames = {chanStruct.Channel.Name};
 [lia, lib] = ismember(coregChannelNames, chanNames);
+
+% Nothing matched at all: this is a naming problem, not a missing contact.
+% Show both sides so the culprit is obvious instead of silently producing an
+% empty group result.
+if ~any(lia)
+    error('mia_bst2mia:noChannelMatch', ...
+        ['None of the %d contacts of the labeling table were found in the ' ...
+         'channel file.\nExpected names of the form Subject__Contact.\n' ...
+         'Labeling table: %s ...\nChannel file  : %s ...\n' ...
+         'A channel file holding names such as s1, s2, s3 is the simulated ' ...
+         'signal, not the group file written by "MIA: Concatenate channels".'], ...
+        numel(coregChannelNames), ...
+        strjoin(coregChannelNames(1:min(3,end)), ', '), ...
+        strjoin(chanNames(1:min(3,end)), ', '));
+end
 
 % Warn if some channels missing
 if any(lib == 0)
@@ -89,28 +171,6 @@ if any(lib == 0)
 end
 
 fprintf('Found %d matching channels (coreg labels in BST) out of %d total\n', sum(lia), length(coregChannelNames));
-
-% Initialize cell for ROI table
-mTable = cell(length(coregChannelNames), 5);
-mTable(:,1) = coregTable.Subject;
-
-% Extract alpha characters and numbers from contact names
-newCellArray = arrayfun(@(i) {coregTable.Contact{i}(~isstrprop(coregTable.Contact{i}, 'digit')), ...
-                             str2double(coregTable.Contact{i}(isstrprop(coregTable.Contact{i}, 'digit')))}, ...
-                             1:length(coregTable.Contact), 'UniformOutput', false);
-
-mTable(:, 2:3) = vertcat(newCellArray{:});
-
-% Laterality assignment: X > 0 -> 'R', X < 0 -> 'L'
-mTable(coregTable.X > 0, 4) = {'R'};
-mTable(coregTable.X < 0, 4) = {'L'};
-
-% ROI label
-columnAtlas = 'localisation_lectrodes'; % hardcoded in original
-mTable(:, 5) = coregTable{:, columnAtlas};
-
-% Remove rows with empty ROI labels
-mTable(cellfun(@isempty, mTable(:,5)), :) = [];
 
 % Generate bipolar montage table (exclusive = 1)
 bipolarTable = generate_bipolar_table(mTable, 1);

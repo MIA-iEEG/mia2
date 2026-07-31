@@ -11,5 +11,7 @@ website/.sass-cache/
 website/.bundle/
 website/vendor/
 website/Gemfile.lock
-show_brainstorm.m
+
+# Local Brainstorm install, not versioned: each user drops their own copy here
+brainstorm3/
 

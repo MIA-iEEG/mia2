@@ -5,10 +5,18 @@ function [struct_table, status, message] = mia_read_loc_tsv_table(filename, OPTI
 %
 % Inputs :
 %         filename : Name of the iEEG atlas table (filename.tsv)
-
+%         OPTIONS  : structure with fields
+%             .patients : cell array of patient names offered in the dialog
+%             .patient  : (optional) patient name
+%             .atlas    : (optional) name of the atlas column to read
+%
+%           When .patient AND .atlas are both provided, the selection dialog
+%           is skipped entirely. This lets scripts and Brainstorm processes
+%           call this function without any window popping up. Otherwise the
+%           dialog is displayed and .patients is used to fill it.
 %
 % Output:   status  : integrity of table (-1 if doublons exist ; 1
-% otherwise) 
+% otherwise)
 %           message : string output message containing doublons
 %
 % ========================================================================
@@ -41,52 +49,149 @@ T = readtable(filename,'FileType','text','ReadVariableNames',true) ;
 % (e.g. cortex_148917V:Schaefer_100_17net) Matlab replaces with _
 % 
 
+% Two table layouts are supported :
+%   - Brainstorm iEEG atlas export : one patient per file, contacts in a
+%     'Channel' column, laterality read from the label text ('Left', ' R'...)
+%   - MIA coregistration table     : several patients per file, columns
+%     'Subject' and 'Contact', laterality read from the sign of X
+isCoregTable = all(ismember({'Subject','Contact'}, T.Properties.VariableNames)) ;
+
 % Get table column headers
 atlases = T.Properties.VariableNames ;
 
-% Excludes _prob and coordinates
-atlases = atlases(~contains(atlases,'_prob')) ;
-atlases = atlases(~ismember(atlases,'Channel')&...
-                    ~ismember(atlases,'SCS')&...
-                    ~ismember(atlases,'MNI')&...
-                    ~ismember(atlases,'World')) ; 
+if isCoregTable
+    % Drop identifiers, coordinates and probability columns. The duplicated
+    % 'Prob' header of these tables is read back by Matlab as Prob/Prob_1,
+    % hence the case-insensitive match.
+    atlases = atlases(~contains(lower(atlases),'prob')) ;
+    atlases = atlases(~ismember(atlases, ...
+                    {'Subject','Electrode','Contact','X','Y','Z','Tissue'})) ;
 
-[ptname,atlas]=mia_inputdialog(OPTIONS.patients,atlases) ; 
+    % Anatomical labels are text : this drops numeric atlas indices (e.g. DK)
+    atlases = atlases(varfun(@(c) ~isnumeric(c), T(:,atlases), ...
+                             'OutputFormat','uniform')) ;
+else
+    % Excludes _prob and coordinates
+    atlases = atlases(~contains(atlases,'_prob')) ;
+    atlases = atlases(~ismember(atlases,'Channel')&...
+                        ~ismember(atlases,'SCS')&...
+                        ~ismember(atlases,'MNI')&...
+                        ~ismember(atlases,'World')) ;
+end
 
-if isempty(ptname)||isempty(atlas) ; status =2 ; return ; end 
-    
-idx = find(ismember(fieldnames(T),atlas)) ; 
+if isempty(atlases)
+    status = -1 ;
+    message = sprintf('No anatomical label column found in %s.',filename) ;
+    return ;
+end
+
+% Coregistration tables carry their own patient names ; Brainstorm exports
+% do not, so the caller has to say which patient the file belongs to.
+if isCoregTable
+    filePatients = unique(T.Subject,'stable') ;
+else
+    filePatients = OPTIONS.patients ;
+end
+
+hasAtlas   = isfield(OPTIONS,'atlas')   && ~isempty(OPTIONS.atlas) ;
+hasPatient = isfield(OPTIONS,'patient') && ~isempty(OPTIONS.patient) ;
+
+% Skip the selection dialog when the caller already knows what it wants.
+% For coregistration tables .atlas alone is enough : leaving .patient out
+% then returns every patient of the file, which is what batch callers need.
+if hasAtlas && (hasPatient || isCoregTable)
+
+    atlas = OPTIONS.atlas ;
+    if hasPatient ; ptname = OPTIONS.patient ; else ; ptname = [] ; end
+
+    % Fail explicitly here rather than returning an empty table further down
+    if ~ismember(atlas,atlases)
+        status = -1 ;
+        message = sprintf('Atlas "%s" not found in %s.\nAvailable atlases : %s', ...
+                            atlas, filename, strjoin(atlases,', ')) ;
+        return ;
+    end
+
+else
+    [ptname,atlas]=mia_inputdialog(filePatients,atlases) ;
+
+    if isempty(ptname)||isempty(atlas) ; status =2 ; return ; end
+end
+
 
 % Get region labels
-roi = T.(idx);
+roi = T.(atlas);
 
-idx_left = contains(roi,' L') | contains(roi,'Left') ; 
-idx_right = contains(roi,' R') | contains(roi,'Right') ; 
+if isCoregTable
+    % Laterality comes from the coordinate : these tables carry labels that
+    % do not name a side (e.g. "amygdale"), so the text heuristic used for
+    % Brainstorm exports would discard every row.
+    lat = cell(height(T),1) ;
+    lat(T.X > 0) = {'R'} ;
+    lat(T.X < 0) = {'L'} ;
 
-lat(idx_left) = {'L'}; lat(idx_right) = {'R'}; 
+    isKept = ~cellfun(@isempty,lat) ;
+    elecAll = T.Contact ;
+    ptAll   = T.Subject ;
+else
+    idx_left = contains(roi,' L') | contains(roi,'Left') ;
+    idx_right = contains(roi,' R') | contains(roi,'Right') ;
 
-% Only keeps data for which we have a lateraltiy (exclude de facto N/A)
-roi = roi(idx_left|idx_right);
-lat = lat(idx_left|idx_right)';
-elec = T.Channel(idx_left|idx_right);
+    lat = cell(numel(roi),1) ;
+    lat(idx_left) = {'L'}; lat(idx_right) = {'R'};
 
-% Removes any anoying character
-elec = strrep(elec,'''',''); elec = strrep(elec,',',''); elec = strrep(elec,'"','');
+    % Only keeps data for which we have a lateraltiy (exclude de facto N/A)
+    isKept = idx_left|idx_right ;
+    elecAll = T.Channel ;
 
-% % Something is wrong with the format (missing column or missing header)
-% if isempty(idpt)|| isempty(idelec) || isempty(idlat)|| isempty(idroi)
-%     status =-1; 
-%     message = ' Table should contain 4 columns : "Patient", "Contact (or Electrode)", "Lateralization","Region" ';
-% else
+    % A Brainstorm export holds a single patient, named by the caller
+    ptAll = repmat({ptname},numel(roi),1) ;
+end
 
-struct_table{1}.pt = ptname; 
-struct_table{1}.lat = lat ; 
-struct_table{1}.elec = elec; 
-struct_table{1}.roi= roi; 
-struct_table{1}.atlas= atlas; 
+% Drop the rows we could not lateralize
+roi  = roi(isKept) ;
+lat  = lat(isKept) ;
+elec = elecAll(isKept) ;
+ptAll = ptAll(isKept) ;
 
-% end
-end 
+% Removes any anoying character. Contact names read from a coregistration
+% table are matched against the Brainstorm channel file, and SEEG labels use
+% the prime notation (A'1 is not A1), so the apostrophe must survive there.
+elec = strrep(elec,',',''); elec = strrep(elec,'"','');
+if ~isCoregTable
+    elec = strrep(elec,'''','');
+end
+
+% Restrict to the requested patient(s) : empty ptname means "all of them",
+% which only happens for coregistration tables read without a dialog.
+if isempty(ptname)
+    u_pt = unique(ptAll,'stable') ;
+else
+    u_pt = {ptname} ;
+end
+
+% One entry per patient, as mia_read_loc_table does for .xlsx tables
+for iPt=1:length(u_pt)
+
+    idxPt = strcmp(u_pt{iPt},ptAll) ;
+
+    struct_table{iPt}.pt = u_pt{iPt};
+    struct_table{iPt}.lat = lat(idxPt) ;
+    struct_table{iPt}.elec = elec(idxPt);
+    struct_table{iPt}.roi= roi(idxPt);
+    struct_table{iPt}.atlas= atlas;
+
+    % Report contacts listed twice for the same patient
+    contacts = strcat(struct_table{iPt}.elec,'(',struct_table{iPt}.lat,')') ;
+    [uContacts,~,ic] = unique(contacts) ;
+    doublons = uContacts(histc(ic,unique(ic))>=2) ;
+    if ~isempty(doublons)
+        message = sprintf('%s\n %s : %s',message,u_pt{iPt},sprintf('%s, ',doublons{:}));
+        status = 0;
+    end
+
+end
+end
 
 function [opt1,opt2]=mia_inputdialog(opt_list1,opt_list2)
 

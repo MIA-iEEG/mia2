@@ -34,7 +34,7 @@ function sProcess = GetDescription() %#ok<DEFNU>
     sProcess.Category    = 'Custom';
     sProcess.SubGroup    = 'Frequency';
     sProcess.Index       = 506;
-    sProcess.Description = 'https://www.neurotrack.fr/mia/';
+    sProcess.Description = 'https://mia-ieeg.github.io/mia2/';
     % Definition of the input accepted by this process
     sProcess.InputTypes  = {'data', 'results', 'matrix'};
     sProcess.OutputTypes = {'data', 'results', 'matrix'};
