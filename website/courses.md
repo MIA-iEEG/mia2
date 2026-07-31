@@ -16,6 +16,9 @@ from the current interface. For the current workflow, follow the
 
 ## Intracranial data analysis using Brainstorm and MIA
 
+<img src="{{ '/assets/images/courses/wired-logo.webp' | relative_url }}"
+     alt="WIRED conference logo" class="course-logo" width="579" height="233">
+
 **March 2024 — WIRED 2024, ICM**
 
 Hands-on tutorial presented at the WIRED conference.

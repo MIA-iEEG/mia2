@@ -626,6 +626,17 @@ code {
   mix-blend-mode: multiply;
 }
 
+/* Conference logo above a course entry. The source is a JPEG, so its white
+   background is opaque; multiply drops it onto the cream page. */
+.course-logo {
+  display: block;
+  width: auto;
+  max-width: min(240px, 100%);
+  height: auto;
+  margin: 0 0 1rem;
+  mix-blend-mode: multiply;
+}
+
 .callout {
   margin: 1.4rem 0;
   padding: 1rem 1.2rem;
