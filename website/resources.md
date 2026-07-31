@@ -14,10 +14,10 @@ permalink: /resources/
     <strong>GitHub repository</strong>
     <span>Browse source code, releases, and issues.</span>
   </a>
-  <a class="resource-card" href="{{ site.data.site.tutorials_url }}" target="_blank" rel="noopener">
+  <a class="resource-card" href="{{ '/tutorial/' | relative_url }}">
     <span class="resource-card__label">Tutorials</span>
     <strong>Online tutorials</strong>
-    <span>Follow the original tutorial material from the MIA website.</span>
+    <span>Follow the updated MIA2 workflow from Brainstorm preparation through condition contrasts.</span>
   </a>
   <a class="resource-card" href="{{ site.data.site.courses_url }}" target="_blank" rel="noopener">
     <span class="resource-card__label">Training</span>

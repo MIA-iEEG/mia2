@@ -20,7 +20,7 @@ Open `http://localhost:4000/mia/`.
 - `_data/navigation.yml` stores header and footer navigation.
 - `_data/content.yml` stores homepage sections.
 - `_data/publications.yml` stores selected citation entries.
-- `installation.md`, `dataset.md`, `resources.md`, and `publications.md` store page bodies.
+- `installation.md`, `tutorial.md`, `dataset.md`, `resources.md`, and `publications.md` store page bodies.
 
 ## Deployment
 

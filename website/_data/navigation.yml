@@ -3,6 +3,8 @@ main:
     url: "/"
   - title: "Installation"
     url: "/installation/"
+  - title: "Tutorial"
+    url: "/tutorial/"
   - title: "Dataset"
     url: "/dataset/"
   - title: "Resources"
@@ -13,6 +15,8 @@ main:
 footer:
   - title: "Installation"
     url: "/installation/"
+  - title: "Tutorial"
+    url: "/tutorial/"
   - title: "Shared dataset"
     url: "/dataset/"
   - title: "Resources"
