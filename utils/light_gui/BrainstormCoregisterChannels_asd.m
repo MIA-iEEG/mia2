@@ -14,7 +14,7 @@
 % You should have received a copy of the GNU General Public License
 % along with MIA.  If not, see <https://www.gnu.org/licenses/>.
 %
-% Copyright (C) 2016-2022 CNRS - Université Aix-Marseille
+% Copyright (C) 2012-2026 CNRS - Université Aix-Marseille
 %
 % ========================================================================
 
